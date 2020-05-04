@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wordPingpong</title>
+    <!-- 스크립트 부분 / 사용한 CDN (jQuery 3.3.1)-->
+    <style>
+
+
+        #me{
+            font-size: 1.2em;
+        color: white;
+        font-weight: bold;
+        width: 400px; height:150px;
+        background-color:white; color: rgb(0, 0, 0);
+        border-radius: 7px 7px 7px 7px;
+        word-break: keep-all;
+        margin: auto;
+        }
+        #you{
+            font-size: 1.2em;
+        color: white;
+        font-weight: bold;
+        width: 400px; height:150px;
+        background-color:white; color: rgb(0, 0, 0);
+        border-radius: 7px 7px 7px 7px;
+        word-break: keep-all;
+        margin: auto;
+        }
+
+        #show{
+            width: 150px; height:300px;
+            word-break: keep-all;
+            margin: auto;
+        }
+    </style>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    
+    <script type="text/javascript">
+  
+        window.onload = function(){
+            document.getElementById("me").focus();
+        }
+
+        $(document).ready(function(){
+            // 1. #data 공간에서 keyup이라는 이벤트가 발생했을 때
+            $("#me").keyup(function(){
+                // 2. #out 공간에 #data의 내용이 출력된다.
+                $("#you").text($("#me").val());
+                // #out의 위치에 text로 데이터를 받는다.(setter)
+                // 들어가는 데이터는 #data의 값(.val())이다. (getter)
+                // 메서드 괄호 안에 아무것도 없으면 getter, 파라미터가 있으면 setter이다.
+            });
+        });
+
+        var keydownCtrl = 0;
+        var keydownShift = 0;
+        var keydownBackS = 0;
+document.onkeydown=keycheck;
+document.onclick=clickcheck;
+document.onkeyup=uncheckCtrlShift;
+
+function keycheck()
+{
+        switch(event.keyCode){ //키값에 따라
+            // case 13:event.keyCode=''; 
+            // alert('다음텍으로이동'); return false; break; //Enter
+            // case 27:event.keyCode=''; 
+            // alert('닫기함수호출'); return false; break; //ESC
+            case 112:event.keyCode='';
+                document.getElementById("head").innerHTML = "F1";
+                return false; break; //F1
+
+            case 113:event.keyCode='';
+                document.getElementById("head").innerHTML = "F2";
+                return false; break; //F2
+
+            case 114:event.keyCode='';
+                document.getElementById("head").innerHTML = "F3 상용구 출력키";
+                return false; break; //F3
+            
+            case 115:event.keyCode=''; 
+                document.getElementById("me").focus();
+                document.getElementById("head").innerHTML = "F4";
+                F4();
+                return false; break; //F4
+
+            case 116:event.keyCode=''; //alert('F5 사용 금지');
+                document.getElementById("head").innerHTML = "F5 사용금지";
+                return false; break; //F5
+
+            case 117:event.keyCode='';
+                document.getElementById("head").innerHTML = "F6";
+                return false; break; //F6
+
+            case 118:event.keyCode='';
+                document.getElementById("head").innerHTML = "F7";
+                return false; break; //F7
+
+            case 119:event.keyCode='';
+                document.getElementById("head").innerHTML = "F8 상대방 앞 단어 지우기";
+                return false; break; //F8
+
+            case 120:event.keyCode='';
+                document.getElementById("head").innerHTML = "F9";
+                return false; break; //F9
+
+            case 121:event.keyCode='';
+                document.getElementById("head").innerHTML = "F10 상용구 저장키";
+                return false; break; //F10
+                
+            case 122:event.keyCode=''; 
+                document.getElementById("head").innerHTML = "F11 풀화면 사용금지";
+                return false; break; //11
+            
+
+            // case 123:event.keyCode='';
+            //     return false; break; //F12
+
+            // case 93:event.keyCode='';
+            //     return false; break;//메뉴키
+
+            // case 16:event.keyCode='';keydownShift=1;
+            //     return false; break;//쉬프트키
+
+            // case 17:event.keyCode='';keydownCtrl=1;
+            //     return false; break;//컨트롤키
+
+            // case 8:event.keyCode='';
+            //     return false; break;//백스페이스
+
+            case 45:event.keyCode=''; insert(); me.value = "";
+            document.getElementById("head").innerHTML = "인서트";
+                return false; break;// 인서트
+      }
+      if(keydownCtrl) return false;
+}
+
+function clickcheck()
+{
+      if(keydownShift) return false;
+}
+
+function uncheckCtrlShift()
+{     
+    if(event.keyCode==17)      keydownCtrl=0;
+    if(event.keyCode==16)      keydownShift=0;
+}
+
+
+
+        function F4(){ 
+            var text1 = me.value;
+            var text2 = text1.replace(/ +/g, " ");//여러 개 공백 하나로 
+            console.log("text2="+text2)
+            //var i = document.getElementById("me");
+            var text3=text2.replace(/\s$/gi, "");//문자열 맨 뒤의 공백만 제거
+            var text = text3.split(" ");
+            var str = "";
+            console.log(text.length);
+            for(var i= 0; i<(text.length-1); i++){
+                console.log(text[i]);
+                    str+=text[i] + " ";
+            }
+            me.value = str;
+        
+        }
+        function F8(){
+
+        }
+
+        function insert(){
+            show.value = show.value + me.value.replace(/ +/g, " ");//띄어쓰기는 1번으로
+        }
+
+        </script>
+</head>
+
+<span id="head"> 알림창 </span>
+<body>
+    <table class = "box" border="1" >
+    <tr>
+        <td> 
+            <textarea id="me" cols="50"  rows="10" 
+            onkeydown="return FnKeyEvent();" 
+            onkeypress="FnKeyHandler();" 
+            ></textarea>
+            
+            <br/>
+            <span id="keySpan" style="color: blue; font-size: 1.5em;"></span>
+        </td>
+        <td rowspan="2" >
+            <textarea name="show" id="show" rowspan="2" cols="30" rows="10"></textarea>
+            </td>
+            
+    </tr>
+    <tr>
+        <td>
+            <textarea  id="you" ></textarea>
+         
+         </td>
+
+    </tr>
+
+
+    
+
+</table>
+
+</body>
+</html>

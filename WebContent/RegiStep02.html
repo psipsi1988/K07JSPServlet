@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegiStep02.html</title>
+    <script>
+    
+
+    function checkForm(f){
+		if(f.id.value==""){
+			alert("아이디를 입력해주세요");
+			f.id.focus();
+			return false;
+		}
+		if(f.pwd.value==""){
+			alert("패스워드를 입력해주세요");
+			f.pwd.focus();
+			return false;
+		}
+		if(f.email.value==""){
+			alert("이메일을 입력해주세요");
+			f.email.focus();
+			return false;
+		}
+		if((f.email.value).indexOf('@') ==-1 || (f.email.value).indexOf('.') ==-1){
+			alert("@ 또는 .을 입력하지 않았습니다. ")
+			f.email.focus();
+			return false;
+		}
+        
+	}
+    
+    </script>
+    <style>
+
+        .button{
+            border-color: black; background-color: white;
+     
+        }
+        .button:hover{
+            background-color: #e5e5e5;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="registFrm" onsubmit="return checkForm(this);"
+    	action="RegiStep03.jsp">
+        <!-- table>tr*9>td*2 -->
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <td colspan="2"  >2단계 : 회원가입</td>
+            </tr>
+            <tr>
+                <td>아이디</td>
+                <td>
+                    <input type="text" name="id" size="20" />
+                </td>
+            </tr>
+            <tr>
+                <td>패스워드</td>
+                <td>
+                    <input type="password" name="pwd" size="20" />
+                </td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>
+                    <input type="text" name="email" size="20" />
+                </td>
+            </tr>
+            
+            <tr>
+                <td>성별</td>
+                <td>
+                    <label>남자<input type="radio" checked="checked" name="gender" value="남자" /></label>
+                    <label>여자<input type="radio" name="gender" value="여자"/></label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+
+                </td>
+                <td >
+                    
+                    <input type="button" class="button" onclick="history.back();" value="이전"/>
+                    &nbsp;&nbsp;&nbsp;
+                    <input type="submit" class="button" value="다음" />
+                </td>
+                
+            </tr>
+            </table>
+</body>
+</html>

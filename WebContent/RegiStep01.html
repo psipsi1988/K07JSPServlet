@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegiStep01.html</title>
+
+    
+    
+    <script>
+    
+    function checkForm(f){
+		if(f.ju1.value==""){
+			alert("주민번호 앞자리를 입력하세요");
+			f.ju1.focus();
+			return false;
+		}
+        if((f.ju1.value).length !=6){
+			alert("주민번호 앞자리 6자리를 입력하세요");
+			f.ju1.focus();
+			return false;
+		}
+
+		if(f.ju2.value==""){
+			alert("주민번호 뒷자리를 입력하세요");
+			f.ju2.focus();
+			return false;
+		}
+
+        if((f.ju2.value).length !=7){
+			alert("주민번호 뒷자리 7자리를 입력하세요");
+			f.ju2.focus();
+			return false;
+		}
+
+		if(f.name.value==""){
+			alert("이름을 입력하세요");
+			f.name.focus();
+			return false;
+		}
+
+	}
+		
+    function hangul(){
+        if((event.keyCode < 12592) || (event.keyCode > 12687))
+        event.returnValue = false
+    }
+
+
+    function fnJuminFocus(obj){
+            //키보드를 눌렀다가 떼는 순간 입력된 문자의 길이를 가져온다. 
+            var strLength=obj.value.length;
+            console.log("strLength", strLength);
+            if(strLength>=6){
+                //입력된 문자의 수가 6이 되면 포커스를 이동한다. 
+                document.getElementById("ju2").focus();
+               
+            } 
+             /*if(obj.value.length==6){
+                ju2.focus();
+                return;
+                
+            }*/
+           
+        }   
+        function commonFocusMove(obj, mLlength, next_obj){
+            //DOM에 입력된 글자수를 가져온다. 
+            var strLength = obj.value.length;
+            if(strLength >= mLlength){
+                document.getElementById(next_obj).focus();
+            }
+        }  
+    </script>
+    <style>
+
+        .button{
+            border-color: black; background-color: white;
+     
+        }
+        .button:hover{
+            background-color: #e5e5e5;
+        }
+    </style>
+</head>
+<body >
+    <form name="registFrm" onsubmit="return checkForm(this);"
+    	action="RegiStep02.html">
+        <table border="1" cellspacing="0" cellpadding="5">
+             <tr>
+                <td colspan="2"  >1단계 : 실명확인</td>
+            </tr>
+            <tr>
+            
+                <td>주민번호</td>
+                <td>
+                    <input type="text"  name="ju1"  id="ju1" size="6" 
+                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                        maxlength="6" onkeypress="fnJuminFocus(this);">
+                    - 
+                    <input type="text" name="ju2" id="ju2" size="7" 
+                        onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                        maxlength="7"
+                    onkeypress="commonFocusMove(this, 7, 'name');">
+                </td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td>
+                    <input type="text" name="name" id="name" size="20" maxlength="10" onKeyPress="hangul();">
+                </td>
+            </tr>
+  
+            <tr>
+                
+                <td colspan="2"  >
+                    <input type="submit" class="button" value="다음" />
+                </td>
+            </tr>
+
+    
+    
+
+    <br/><br/>
+   
+          
+
+    <br/><br/>
+
+
+
+
+
+
+
+
+</body>
+</html>

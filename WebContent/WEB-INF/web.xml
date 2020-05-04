@@ -4,6 +4,30 @@
   
   
   <!-- 
+  	JDBC사용을 위한 "컨텍스트 초기화 파라미터"를 설정
+  	해당 설정값은 웹애플리케이션 모든 JSP 혹은 서블릿에서 
+  	접근 가능. 
+   -->
+  <context-param>
+  	<param-name>JDBCDriver</param-name>
+  	<param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>ConnectionURL</param-name>
+  	<param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
+  </context-param>
+  
+  
+  <!-- 
+  세션유지시간 설정 : 여기서 설정한 시간은 '분' 단위
+   -->
+    <session-config>
+   	<session-timeout>60</session-timeout>
+   </session-config> 
+  
+  
+  
+  <!-- 
   해당 웹애플리케이션을 실행했을 때 파일명을 명시하지 않으면 
   아래 파일리스트에 기술된 파일을 순서대로 찾아서 실행한다. 
   만약 해당 파일이 없다면 404(페이지 없음) 에러고 발생한다. 
