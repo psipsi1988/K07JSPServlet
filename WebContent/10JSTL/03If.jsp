@@ -77,7 +77,7 @@
 	\${result } : ${result }<br/>
 	
 	<c:if test="tRuE" var="result">
-		TRUE(true) 대소문자 구분 없음. 항상  참임.<br/>
+		TRUE(true) 대소문자 구분 없음. 항상 참임.<br/>
 	</c:if>
 	\${result } : ${result }<br/>
 	
