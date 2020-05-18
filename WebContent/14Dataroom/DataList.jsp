@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>     
-
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="../common/boardHead.jsp"/>
@@ -48,8 +47,8 @@
                <th width="10%">번호</th>
                <th width="50%">제목</th>
                <th width="15%">작성자</th>
-               <th width="15%">작성일</th>
-               <th width="10%">조회수</th>
+               <th width="15%">조회수</th>
+               <th width="10%">작성일</th>
                <th width="10%">첨부</th>
             </tr>
             </thead>            
@@ -88,7 +87,8 @@
 				<c:if test="${not empty row.attachedfile }">
 						<a href="./Download?filename=${row.attachedfile }&idx=${row.idx }">
 										<img src="../images/disk.png" width="20" alt=""/>
-						</a>						
+						</a>	
+											
 						</c:if>
 					</td>
 				</tr>

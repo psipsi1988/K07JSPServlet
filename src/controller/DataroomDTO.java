@@ -63,8 +63,8 @@ public class DataroomDTO {
 	public int getVisitcount() {
 		return visitcount;
 	}
-	public void setVisitcount(int visicount) {
-		this.visitcount = visicount;
+	public void setVisitcount(int visitcount) {
+		this.visitcount = visitcount;
 	} 
 	
    
