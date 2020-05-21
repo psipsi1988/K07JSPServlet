@@ -11,7 +11,7 @@
       <jsp:include page="../common/boardLeft.jsp" />
       <div class="col-9 pt-3">
          <h3>자료실 - <small>Model2방식의 Servlet게시판.</small></h3>
-         
+          
          <div class="row">
             <!-- 검색부분 -->
             <form class="form-inline ml-auto" name="searchFrm" method="get">    
@@ -71,13 +71,11 @@
 		<c:otherwise>
 			<c:forEach items="${lists }" var="row" varStatus="loop">
 				<tr>
-					<td class="text-center">
+					<td class="text-center"><!-- 가상번호 -->
 						${map.totalCount - (((map.nowPage-1) * map.pageSize) + loop.index) }
 					</td>
 					<td class="text-left">
-						<a href="../DataRoom/DataView?idx=${row.idx 
-						}&nowPage=${param.nowPage }">
-							${row.title }
+						<a href="../DataRoom/DataView?idx=${row.idx }&nowPage=${param.nowPage }&searchColumn=${param.searchColumn }&searchWord=${param.searchWord }">${row.title }
 						</a>
 					</td>
 					<td class="text-center">${row.name }</td>
@@ -133,11 +131,12 @@
          <div class="row mt-3">
             <div class="col">
 				<!-- 페이지 번호 기본 이미지 -->
-				<div style="text-align:center; padding: 0 0 10px 0;">
-								</div>
+				<%--<div style="text-align:center; padding: 0 0 10px 0;">
+						${map.pagingImg }
+				</div> --%>
              	<!-- 페이지번호 부트스트랩4적용 -->
              	<ul class='pagination justify-content-center'>
-             	
+             		${map.pagingImg} 
              	</ul>
              	
             </div>            

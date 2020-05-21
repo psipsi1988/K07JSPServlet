@@ -192,6 +192,42 @@
   
   
   
+  
+  
+  
+	<!-- 자료실 수정 -->
+    <servlet>
+  	<servlet-name>DataRoomEdit</servlet-name>
+  	<servlet-class>controller.EditCtrl</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DataRoomEdit</servlet-name>
+  	<url-pattern>/DataRoom/DataEdit</url-pattern>
+  </servlet-mapping>
+
+
+
+  
+  
+	<!-- 파일 다운로드 -->
+    <servlet>
+  	<servlet-name>DataRoomDownload</servlet-name>
+  	<servlet-class>controller.DownloadCtrl</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DataRoomDownload</servlet-name>
+  	<url-pattern>/DataRoom/Download</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <!-- 순서도 틀리면 안 됨
    <servlet>
   	<servlet-name>HelloServlet</servlet-name>

@@ -82,15 +82,15 @@ dao.close();
 					<!-- 수정, 삭제의 경우 특정 게시물에 대해 수행하는 작업이므로 반드시 
 					게시물의 일련번호(PK)가 파라미터로 전달되어야 한다.  -->
 					<button type="button" class="btn btn-secondary"
-						onclick="location.href='./DataPassword?idx=${param.idx}&mode=edit&nowPage=${param.nowPage }';">수정하기</button>
+						onclick="location.href='./DataPassword?idx=${param.idx}&mode=edit&nowPage=${param.nowPage }&searchColumn=${param.searchColumn }&searchWord=${param.searchWord }';">수정하기</button>
 					<!-- 회원제 게시판에서 삭제 처리는 별도의 폼이 필요없이 사용자에 대한 
 					인증처리만 되면 즉시 삭제처리한다.  -->
 					<button type="button" class="btn btn-success"
-						onclick="location.href='../DataRoom/DataPassword?idx=${dto.idx}&mode=delete&nowPage=${param.nowPage }';">삭제하기</button>
+						onclick="location.href='../DataRoom/DataPassword?idx=${dto.idx}&mode=delete&nowPage=${param.nowPage }&searchColumn=${param.searchColumn }&searchWord=${param.searchWord }';">삭제하기</button>
 		
 				</div>
 				<div class="col-6 text-right pr-5">
-					<button type="button" class="btn btn-warning" onclick="location.href='./DataList?nowPage=${param.nowPage }';">리스트보기</button>
+					<button type="button" class="btn btn-warning" onclick="location.href='./DataList?nowPage=${param.nowPage}&searchColumn=${param.searchColumn }&searchWord=${param.searchWord }';">리스트보기</button>
 				</div>
 				
 				<!-- 

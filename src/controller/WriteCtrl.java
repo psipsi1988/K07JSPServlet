@@ -87,7 +87,7 @@ public class WriteCtrl extends HttpServlet{
 				
 			}
 		
-	}///doPsst끝
+	}///doPost끝
 	
 	
 }

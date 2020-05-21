@@ -65,8 +65,7 @@ document.onkeydown=keycheck;
 document.onclick=clickcheck;
 document.onkeyup=uncheckCtrlShift;
 
-function keycheck()
-{
+	function keycheck(){
         switch(event.keyCode){ //키값에 따라
             // case 13:event.keyCode=''; 
             // alert('다음텍으로이동'); return false; break; //Enter
@@ -135,11 +134,11 @@ function keycheck()
             //     return false; break;//백스페이스
 
             case 45:event.keyCode=''; insert(); me.value = "";
-            document.getElementById("head").innerHTML = "인서트";
+           		document.getElementById("head").innerHTML = "인서트";
                 return false; break;// 인서트
-      }
-      if(keydownCtrl) return false;
-}
+	      }
+	      if(keydownCtrl) return false;
+		}
 
 function clickcheck()
 {
@@ -183,6 +182,7 @@ function uncheckCtrlShift()
 
 <span id="head"> 알림창 </span>
 <body>
+
     <table class = "box" border="1" >
     <tr>
         <td> 
@@ -197,19 +197,12 @@ function uncheckCtrlShift()
         <td rowspan="2" >
             <textarea name="show" id="show" rowspan="2" cols="30" rows="10"></textarea>
             </td>
-            
     </tr>
     <tr>
         <td>
             <textarea  id="you" ></textarea>
-         
          </td>
-
     </tr>
-
-
-    
-
 </table>
 
 </body>
